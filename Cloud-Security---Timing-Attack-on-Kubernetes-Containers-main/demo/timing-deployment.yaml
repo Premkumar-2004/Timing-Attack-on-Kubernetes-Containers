@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timingattack-deployment
+  namespace: timing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timingattack
+  template:
+    metadata:
+      labels:
+        app: timingattack
+    spec:
+      containers:
+      - name: timingattack
+        image: anbu02/timingattack:latest
+        ports:
+        - containerPort: 5000
+
